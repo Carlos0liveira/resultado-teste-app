@@ -1,12 +1,12 @@
 import React from 'react'
-import Card from '../components/card'
+import Card from '../../components/card'
 import { withRouter } from 'react-router-dom'
 
-import UsuarioService from '../app/service/usuarioService'
+import PessoaService from '../../app/service/pessoaService'
 
-import { toastrError, toastrSuccess } from '../components/toastr'
+import { toastrError, toastrSuccess } from '../../components/toastr'
 
-class CadastroUsuario extends React.Component{
+class CadastroPessoa extends React.Component{
 
     state = {
         nome: '',
@@ -16,7 +16,7 @@ class CadastroUsuario extends React.Component{
 
     constructor(){
         super()
-        this.service = new UsuarioService()
+        this.service = new PessoaService()
     }
 
 
@@ -47,14 +47,14 @@ class CadastroUsuario extends React.Component{
             return false
         }
 
-        const usuario = {
+        const pessoa = {
             nome: this.state.nome,
             cpf: this.state.cpf,
             dataNascimento: this.state.dataNascimento
         }
 
-        this.service.salvar(usuario).then( response =>{
-            toastrSuccess('Usuario cadastrado com sucesso')
+        this.service.salvar(pessoa).then( response =>{
+            toastrSuccess('Pessoa cadastrada com sucesso')
         }).catch( erro =>{
             toastrError(erro.response.data)
         })
@@ -71,7 +71,7 @@ class CadastroUsuario extends React.Component{
                 <div className="row">
                     <div className="col-md-6" style= { {position: 'relative', left: '300px'} }>
                         <div className="bs-docs-section">
-                            <Card title="Cadastro de Usuario">
+                            <Card title="Cadastro de Pessoa">
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="bs-component">
@@ -118,4 +118,4 @@ class CadastroUsuario extends React.Component{
     }
 }
 
-export default withRouter(CadastroUsuario)
+export default withRouter(CadastroPessoa)

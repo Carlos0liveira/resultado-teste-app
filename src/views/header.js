@@ -17,8 +17,9 @@ class Header extends React.Component{
                                 <HeaderItem href="#/Home" label="Inicio" />
                                 <HeaderItem href="#/consulta-processos" label="Consulta Processos" />
                                 <HeaderItem href="#/cadastro-processos" label="Cadastro Processos" />
+                                <HeaderItem href="#/consulta-pessoa" label="Consulta Pessoa" />
                             </ul>
-                                <a className="btn btn-secondary my-2 my-sm-0" href="#/cadastro-usuario"> Cadastrar Usuario </a>
+                                <a className="btn btn-secondary my-2 my-sm-0" href="#/cadastro-pessoa"> Cadastrar Pessoa </a>
                         </div>
                     </div>
                 </nav>

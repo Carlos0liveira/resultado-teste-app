@@ -1,18 +1,5 @@
 import React from 'react'
-import UsuarioService from '../app/service/usuarioService'
-
-
 class Home extends React.Component{
-
-    state = {
-        saldo: 0
-    }
-
-    constructor(){
-        super()
-        this.UsuarioService = new UsuarioService();
-    }
-
 
     render(){
         return(

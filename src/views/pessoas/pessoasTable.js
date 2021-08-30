@@ -1,21 +1,20 @@
 import React from 'react'
 
-const processoTable =  props =>{
+const pessoasTable =  props =>{
 
-    const rows = props.Processos.map( processos => {
+    const rows = props.Pessoas.map( pessoas => {
         return(
-            <tr key={processos.id}>
-                <td>{processos.numero}</td>
-                <td>{processos.ano}</td>
-                <td>{processos.pessoa.nome}</td>
+            <tr key={pessoas.id}>
+                <td>{pessoas.nome}</td>
+                <td>{pessoas.cpf}</td>
                 <td>
                     <button type="button" 
                         className="btn btn-primary"
-                        onClick={ e => props.editAction(processos.id) }   
+                        onClick={ e => props.editAction(pessoas.id) }   
                     >Editar</button>
                     <button type="button" 
                         className="btn btn-danger"
-                        onClick={ e => props.deleteAction(processos) }   
+                        onClick={ e => props.deleteAction(pessoas) }   
                     >Deletar</button>
                 </td>
             </tr>
@@ -26,9 +25,8 @@ const processoTable =  props =>{
         <table className="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">Numero</th>
-                    <th scope="col">Ano</th>
-                    <th scope="col">Pessoa</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
@@ -39,4 +37,4 @@ const processoTable =  props =>{
     )
 }
 
-export default processoTable
+export default pessoasTable
