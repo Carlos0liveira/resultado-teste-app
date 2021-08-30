@@ -20,6 +20,7 @@ class CadastroPessoa extends React.Component{
     }
 
 
+
     validar(){
         const msg = [ ];
         if(!this.state.nome){
@@ -47,10 +48,14 @@ class CadastroPessoa extends React.Component{
             return false
         }
 
+        const data = new Date(this.state.dataNascimento);
+        const dataFormatada = data.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+        
+         
         const pessoa = {
             nome: this.state.nome,
             cpf: this.state.cpf,
-            dataNascimento: this.state.dataNascimento
+            dataNascimento: dataFormatada
         }
 
         this.service.salvar(pessoa).then( response =>{
@@ -97,7 +102,7 @@ class CadastroPessoa extends React.Component{
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="inputDataNascimento">Data de Nascimento: *</label>
-                                                <input type="text" 
+                                                <input type="date" 
                                                     value={this.state.dataNascimento} 
                                                     onChange={ e => this.setState( {dataNascimento: e.target.value} ) }
                                                     className="form-control" 
