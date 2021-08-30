@@ -11,7 +11,8 @@ class CadastroPessoa extends React.Component{
     state = {
         nome: '',
         cpf: '',
-        dataNascimento: ''
+        dataNascimento: '',
+        pessoa: ''
     }
 
     constructor(){
@@ -71,6 +72,9 @@ class CadastroPessoa extends React.Component{
     }
 
     render(){
+
+
+
         return(
             <div className="container">
                 <div className="row">
@@ -109,6 +113,10 @@ class CadastroPessoa extends React.Component{
                                                     id="inputDataNascimento" 
                                                     name="dataNascimento"/>
                                             </div>
+                                            
+                                            
+
+
                                             <button type="button" className="btn btn-success" onClick={this.cadastrar}>Confirmar</button>
                                             <button type="button" className="btn btn-danger" onClick={this.cancelarCadastro}>Cancelar</button>
                                         </div>

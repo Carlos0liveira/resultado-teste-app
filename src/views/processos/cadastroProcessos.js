@@ -7,8 +7,8 @@ import Card from '../../components/card'
 import ProcessoService from '../../app/service/processoService'
 import * as message from '../../components/toastr'
 import { toastrError} from '../../components/toastr'
-
-
+// import SelectMenu from '../../components/selectMenu'
+import PessoaService from '../../app/service/pessoaService'
 
 class CadastroProcessos extends React.Component{
 
@@ -23,6 +23,8 @@ class CadastroProcessos extends React.Component{
                 message.toastrError(error.response.data)
             })
         }
+
+
     }
 
     state = {
@@ -30,7 +32,8 @@ class CadastroProcessos extends React.Component{
         numero: '',
         ano: '',
         pessoa: '',
-        atualizando: false
+        atualizando: false,
+        pessoas: []
     }
 
     validar(){
@@ -52,6 +55,7 @@ class CadastroProcessos extends React.Component{
     constructor(){
         super()
         this.service = new ProcessoService()
+        this.pessoaService = new PessoaService()
     }
 
     submit = () => {
@@ -102,6 +106,18 @@ class CadastroProcessos extends React.Component{
 
     render(){
 
+        // const pessoaFiltro = {
+        //     nome: '',
+        //     cpf: '',
+        // }
+
+        // this.pessoaService.consultar(pessoaFiltro)
+        //         .then( response =>{
+        //             this.setState( { pessoas: response.data } )
+        //         }).catch( error =>{
+        //             console.log('erro')
+        //         }) 
+
         return(
             <Card title= { this.state.atualizando ?  'Atualizar Processo' : 'Cadastro de Processo'   }>
                 <div className="row"> 
@@ -145,6 +161,17 @@ class CadastroProcessos extends React.Component{
                             />
                         </div>    
                     </div>
+                    {/* <div className="form-group">
+                        <div className="col-md-12">
+                            <label htmlFor="inputPessoa">Pessoa: *</label>
+                            <SelectMenu 
+                                id="inputPessoa" 
+                                lista={this.state.pessoas} 
+                                value={this.state.pessoa} 
+                                onChange={ e => this.setState( {pessoa: e.target.value} )}
+                            />
+                         </div>   
+                    </div>    */}
                 </div>
                 { this.state.atualizando ? (
                     <button className="btn btn-success" onClick={this.atualizar} >Atualizar</button>
